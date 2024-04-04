@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: dotnet-0404-master-gitops
+  description: This is GitOps manifest for dotnet-0404-master   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-name: dotnet-0404-master
+    janus-idp.io/tekton: dotnet-0404-master 
+    backstage.io/kubernetes-id: dotnet-0404-master 
+    backstage.io/techdocs-ref: dir:. 
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:dotnet-0404-master
